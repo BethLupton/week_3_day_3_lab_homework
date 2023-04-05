@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>{{title}}-One Stop Shop</title>
+</head>
+<body>
+<header>
+    <h1>Welcome to Bethazon</h1>
+</header>
+<main>
+    <h2>Orders:</h2>
+    {% for order in orders %}
+    <div>
+        <p><b>{{order.customer_name}}:</b> {{order.order_date}}</p>
+        <a href="{{ url_for('single_task', id=order.id) }}">View Order</a>
+    </div>
+    {% endfor %}
+  </main>
+</body>
+<footer>
+    <h3>BethLupton Ltd 2023</h3>
+</footer>
+</html>
